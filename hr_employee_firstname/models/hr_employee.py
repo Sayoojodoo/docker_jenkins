@@ -20,25 +20,8 @@ class HrEmployee(models.Model):
         return "first_last"
 
     @api.model
-    def _get_names_order(self):
-        """Get names order configuration from system parameters.
-        You can override this method to read configuration from language,
-        country, company or other"""
-        return (
-            self.env["ir.config_parameter"]
-            .sudo()
-            .get_param("employee_names_order", self._names_order_default())
-        )
-
-    @api.model
     def _get_name(self, lastname, firstname):
-        order = self._get_names_order()
-        if order == "last_first_comma":
-            return ", ".join(p for p in (lastname, firstname) if p)
-        elif order == "first_last":
-            return " ".join(p for p in (firstname, lastname) if p)
-        else:
-            return " ".join(p for p in (lastname, firstname) if p)
+        return " ".join(p for p in (lastname, firstname) if p)
 
     @api.onchange("firstname", "lastname")
     def _onchange_firstname_lastname(self):
