@@ -2,7 +2,7 @@
 # Copyright 2016-2019 Onestein (<https://www.onestein.eu>)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-import odoo.addons
+import odoo
 from odoo.exceptions import ValidationError
 from odoo.tests.common import TransactionCase
 
