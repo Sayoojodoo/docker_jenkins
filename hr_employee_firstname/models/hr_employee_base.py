@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo.addons import fields, models
 
 
 class HrEmployeeBase(models.AbstractModel):
